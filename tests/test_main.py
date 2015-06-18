@@ -3,11 +3,12 @@
 import sys, os, pytest
 sys.path.append(os.path.abspath('./'))
 import main
-from flask import jsonify
+import json
+
 
 def test_get_root():
     app = main.app.test_client()
-    print res.status
+    res = app.get('/')
     assert res.status == '200 OK'
     assert res.data == 'Hello World!'
 
@@ -15,4 +16,6 @@ def test_get_data():
     app = main.app.test_client()
     res = app.get('/data')
     assert res.status == '200 OK'
-    assert res == jsonify(result='Hello Workd!')
+    expect = json.dumps({'result':'Hello World!'})
+    print expect
+    assert res.data.replace('\n', '').replace(' ','') == expect.replace(' ','')

@@ -7,8 +7,8 @@ def hello():
 
 @app.route("/data")
 def get_data():
-    print jsonify({1:1})
-    return jsonify(result='Hello Workd!')
+    res = {'result': 'Hello World!'}
+    return jsonify(res)
 
 if __name__ == "__main__":
     app.run()
