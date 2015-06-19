@@ -1,6 +1,6 @@
 - name: start deploy
   sudo: yes
-  hosts: vagrant
+  hosts: {{ HOST }}
   tasks:
     - name: install Hello-flask
       git: repo=https://github.com/arvelt/hello-flask.git dest=/home/vagrant/hello-flask force=yes
