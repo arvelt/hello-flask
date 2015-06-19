@@ -1,3 +1,8 @@
 test:
   override:
     - ./runtest.sh
+deployment:
+  production:
+    branch: release
+    commands:
+      - ./deploy_production.sh
