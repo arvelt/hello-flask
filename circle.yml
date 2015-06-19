@@ -3,6 +3,6 @@ test:
     - ./runtest.sh
 deployment:
   production:
-    branch: release
+    branch: /release\/.*/
     commands:
       - ./deploy_production.sh
