@@ -1,2 +1,2 @@
 ---
-ansible_ssh_pass: {{SUDOPASS}}
+ansible_ssh_pass: "{{SUDOPASS}}"
