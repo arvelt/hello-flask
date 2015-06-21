@@ -1,4 +1,5 @@
 vars="{
+    \"APP_USER\":\"$USER_NAME\",
     \"HOST\":\"production\",
     \"ansible_sudo_pass\":\"$SUDOPASS\"
 }"
