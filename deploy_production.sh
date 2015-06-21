@@ -1,7 +1,1 @@
-ansible-playbook -i hosts -u ${USER_NAME} --extra-vars '{"HOST":"production"}' site.yml -K
-
-# expect -c "
-# spawn ansible-playbook -i hosts -u ${USER_NAME} --extra-vars '{"HOST":"production"}' site.yml -K
-# expect \"SUDO password\":
-# send -- ${SUDOPASS}
-# "
+ansible-playbook -i hosts -u arvelt --extra-vars '{"HOST":"production","ansible_sudo_pass":"${SUDOPASS}"}' site.yml
