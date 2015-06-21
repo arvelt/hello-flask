@@ -1,12 +1,12 @@
 - name: start deploy
   sudo: yes
-  hosts: vagrant
+  hosts: "{{ HOST }}"
   tasks:
     - name: install Hello-flask
-      git: repo=https://github.com/arvelt/hello-flask.git dest=/home/vagrant/hello-flask force=yes
+      git: repo=https://github.com/arvelt/hello-flask.git dest=/home/{{APP_USER}}/hello-flask force=yes
 
     - name: Install packages
-      command: sudo pip install -r requirements.txt chdir=/home/vagrant/hello-flask
+      command: sudo pip install -r requirements.txt chdir=/home/{{APP_USER}}/hello-flask
 
     - name: exec hello-flask
       service: name=uwsgi_hello-flask state=started
