@@ -1,2 +1,7 @@
 # hello-flask
-hello flask world
+
+### Install
+``pip install -r requirements.txt``
+
+### Run
+``python main.py``
