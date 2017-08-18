@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, make_response, request
+from flask import Flask, jsonify, make_response, request, render_template
 app = Flask(__name__)
 
 @app.route("/")
@@ -9,15 +9,21 @@ def hello():
 	<body>
 		Hello world!
 		<ul>
-		<li><a href="/http_method">http method</a></li>
-		<li><a href="/json_data">json data</a></li>
-		<li><a href="/static_files">static files</a></li>
+		<li><a href="/http_method">Http method</a></li>
+		<li><a href="/json_data">Json data</a></li>
+		<li><a href="/static_files">Static files</a></li>
+		<li><a href="/using_templates">Using templates</a></li>
 		</ul>
 	</body>
 	</html>
 	""".strip()
 	response = make_response(template)
 	return response
+
+@app.route('/using_templates/')
+@app.route('/using_templates/<name>')
+def using_templates(name=None):
+	return render_template('welcome.html', name=name)
 
 @app.route("/static_files")
 def static_files():
