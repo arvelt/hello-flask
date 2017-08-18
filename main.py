@@ -3,20 +3,37 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-		template = u"""
-		<!DOCTYPE html>
-		<html>
-		<body>
-			Hello world!
-			<ul>
-			<li><a href="/http_method">http method</a></li>
-			<li><a href="/json_data">json data</a></li>
-			</ul>
-		</body>
-		</html>
-		""".strip()
-		response = make_response(template)
-		return response
+	template = u"""
+	<!DOCTYPE html>
+	<html>
+	<body>
+		Hello world!
+		<ul>
+		<li><a href="/http_method">http method</a></li>
+		<li><a href="/json_data">json data</a></li>
+		<li><a href="/static_files">static files</a></li>
+		</ul>
+	</body>
+	</html>
+	""".strip()
+	response = make_response(template)
+	return response
+
+@app.route("/static_files")
+def static_files():
+	template = u"""
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<link rel="stylesheet" href="/static/style.css" type="text/css">
+	</head>
+	<body>
+		<div class="red">Using style</div>
+	</body>
+	</html>
+	""".strip()
+	response = make_response(template)
+	return response
 
 @app.route("/http_method", methods=['GET', 'POST'])
 def http_method():
